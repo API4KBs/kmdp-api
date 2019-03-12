@@ -93,7 +93,7 @@
             </goals>
             <phase>initialize</phase>
             <configuration>
-              <propertyFile>${project.basedir}${s}properties${s}repository.properties</propertyFile>
+              <propertyFile>properties/artifact.repository.properties</propertyFile>
             </configuration>
           </execution>
           <execution>
@@ -103,7 +103,7 @@
             </goals>
             <phase>initialize</phase>
             <configuration>
-              <propertyFile>${project.basedir}${s}properties${s}catalog.properties</propertyFile>
+              <propertyFile>properties/asset.repository.properties</propertyFile>
             </configuration>
           </execution>
           <!--<execution>-->
