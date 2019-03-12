@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>kmdp-language-service</artifactId>
+    <groupId>edu.mayo.kmdp</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>edu.mayo.kmdp</groupId>
+  <artifactId>kmdp-language-service-server</artifactId>
+
+  <properties>
+    <java.version>1.8</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <springfox-version>2.7.0</springfox-version>
+    <model.package>edu.mayo.kmdp.common.model</model.package>
+  </properties>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>io.swagger</groupId>
+        <artifactId>swaggerhub-maven-plugin</artifactId>
+        <version>1.0.2</version>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>download</goal>
+            </goals>
+            <configuration>
+              <api>LanguageService</api>
+              <owner>mayo-clinic</owner>
+              <version>1.1.0</version>
+              <outputFile>${project.build.directory}/api.yaml</outputFile>
+              <token>${swaggerhub.api.key}</token>
+              <format>yaml</format>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>io.swagger</groupId>
+        <artifactId>swagger-codegen-maven-plugin</artifactId>
+        <version>2.3.1</version>
+        <executions>
+          <execution>
+            <id>gen-code</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <inputSpec>${project.build.directory}/api.yaml</inputSpec>
+              <language>spring</language>
+              <generateSupportingFiles>false</generateSupportingFiles>
+              <generateModels>false</generateModels>
+              <apiPackage>edu.mayo.kmdp.language.server</apiPackage>
+              <modelPackage>${model.package}</modelPackage>
+              <addCompileSourceRoot>true</addCompileSourceRoot>
+              <configOptions>
+                <delegatePattern>true</delegatePattern>
+                <useTags>true</useTags>
+              </configOptions>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- Impl dependency -->
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-language-service-impl</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>1.5.9.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <version>1.5.9.RELEASE</version>
+    </dependency>
+    <!--SpringFox dependencies -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>${springfox-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>${springfox-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.joschi.jackson</groupId>
+      <artifactId>jackson-datatype-threetenbp</artifactId>
+      <version>2.6.4</version>
+    </dependency>
+    <!-- Bean Validation API support -->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>1.1.0.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.9.9</version>
+    </dependency>
+  </dependencies>
+
+</project>

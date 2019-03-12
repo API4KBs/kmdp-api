@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright © 2018 Mayo Clinic (RSTKNOWLEDGEMGMT@mayo.edu)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>kmdp-services-sdk</artifactId>
+    <groupId>edu.mayo.kmdp</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>kmdp-services</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+
+  <modules>
+    <module>kmdp-repository-service</module>
+    <module>kmdp-semantic-repository-service</module>
+    <module>kmdp-language-service</module>
+    <module>kmdp-knowledgebase-service</module>
+    <module>kmdp-inference-service</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+
+      <plugins>
+        <plugin>
+          <groupId>io.swagger</groupId>
+          <artifactId>swagger-codegen-maven-plugin</artifactId>
+          <version>2.3.1</version>
+          <executions>
+            <execution>
+              <id>gen-code</id>
+              <goals>
+                <goal>generate</goal>
+              </goals>
+              <configuration>
+                <configOptions/>
+                <typeMappings>
+
+                  <!-- Reusable Datatypes -->
+                  <typeMapping>Pointer=org.omg.spec.api4kp._1_0.identifiers.Pointer</typeMapping>
+
+                  <!-- Operations Resources -->
+                  <typeMapping>KnowledgeCarrier=org.omg.spec.api4kp._1_0.services.KnowledgeCarrier
+                  </typeMapping>
+                  <typeMapping>
+                    SyntacticRepresentation=org.omg.spec.api4kp._1_0.services.SyntacticRepresentation
+                  </typeMapping>
+                  <typeMapping>KnowledgeAsset=edu.mayo.kmdp.metadata.surrogate.KnowledgeAsset
+                  </typeMapping>
+
+                  <!-- Discovery Resources -->
+                  <typeMapping>
+                    KnowledgeAssetCatalog=org.omg.spec.api4kp._1_0.services.repository.KnowledgeAssetCatalog
+                  </typeMapping>
+                  <typeMapping>
+                    KnowledgeArtifactRepository=org.omg.spec.api4kp._1_0.services.repository.KnowledgeArtifactRepository
+                  </typeMapping>
+
+                  <typeMapping>
+                    Transrepresentator=org.omg.spec.api4kp._1_0.services.language.Transrepresentator
+                  </typeMapping>
+                  <typeMapping>
+                    Transrepresentation=org.omg.spec.api4kp._1_0.services.language.Transrepresentation
+                  </typeMapping>
+                  <typeMapping>
+                    TransrepresentationMethod=org.omg.spec.api4kp._1_0.services.language.TransrepresentationMethod
+                  </typeMapping>
+                  <typeMapping>
+                    TransrepresentationOperator=org.omg.spec.api4kp._1_0.services.language.TransrepresentationOperator
+                  </typeMapping>
+
+                </typeMappings>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+
+    </pluginManagement>
+  </build>
+
+</project>
