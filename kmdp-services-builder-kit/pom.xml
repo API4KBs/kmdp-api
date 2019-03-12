@@ -46,11 +46,11 @@
         <configuration>
           <filesets>
             <fileset>
-              <directory>..${s}kmdp-services${s}kmdp-repository-service</directory>
+              <directory>..${s}kmdp-services${s}kmdp-artifact-repository-service</directory>
               <followSymlinks>false</followSymlinks>
             </fileset>
             <fileset>
-              <directory>..${s}kmdp-services${s}kmdp-semantic-repository-service</directory>
+              <directory>..${s}kmdp-services${s}kmdp-asset-repository-service</directory>
               <followSymlinks>false</followSymlinks>
             </fileset>
             <!--<fileset>-->
