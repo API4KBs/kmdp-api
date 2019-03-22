@@ -30,9 +30,9 @@
 
 
   <modules>
-    <module>kmdp-language-service</module>
-    <module>kmdp-knowledgebase-service</module>
-    <module>kmdp-inference-service</module>
+    <!--<module>kmdp-language-service</module>-->
+    <!--<module>kmdp-knowledgebase-service</module>-->
+    <!--<module>kmdp-inference-service</module>-->
     <module>kmdp-artifact-repository-service</module>
     <module>kmdp-asset-repository-service</module>
   </modules>
