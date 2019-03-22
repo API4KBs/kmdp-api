@@ -19,7 +19,7 @@
     <module>kmdp-artifact-repository-service-impl</module>
     <module>kmdp-artifact-repository-service-server</module>
     <module>kmdp-artifact-repository-service-base</module>
-    <module>kmdp-artifact-repository-service-vm-client</module>
+    <module>kmdp-artifact-repository-service-api-client</module>
   </modules>
 
   <properties>

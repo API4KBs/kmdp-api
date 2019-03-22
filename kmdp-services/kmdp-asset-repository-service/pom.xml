@@ -19,7 +19,7 @@
     <module>kmdp-asset-repository-service-impl</module>
     <module>kmdp-asset-repository-service-server</module>
     <module>kmdp-asset-repository-service-base</module>
-    <module>kmdp-asset-repository-service-vm-client</module>
+    <module>kmdp-asset-repository-service-api-client</module>
   </modules>
 
   <properties>
