@@ -23,11 +23,11 @@
   <parent>
     <artifactId>kmdp-services-sdk</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
 
   <artifactId>kmdp-ws-utils</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -68,13 +68,6 @@
     <dependency>
       <groupId>com.github.joschi.jackson</groupId>
       <artifactId>jackson-datatype-threetenbp</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-autoconfigure</artifactId>
-      <version>1.5.9.RELEASE</version>
       <scope>provided</scope>
     </dependency>
 

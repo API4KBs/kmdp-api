@@ -24,11 +24,11 @@
   <parent>
     <artifactId>kmdp-services-sdk</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
 
   <artifactId>kmdp-services-kit</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
 
   <packaging>pom</packaging>
 
@@ -44,6 +44,7 @@
         <artifactId>maven-clean-plugin</artifactId>
         <version>3.1.0</version>
         <configuration>
+          <verbose>true</verbose>
           <filesets>
             <fileset>
               <directory>..${s}kmdp-services${s}kmdp-artifact-repository-service</directory>
@@ -53,10 +54,10 @@
               <directory>..${s}kmdp-services${s}kmdp-asset-repository-service</directory>
               <followSymlinks>false</followSymlinks>
             </fileset>
-            <!--<fileset>-->
-              <!--<directory>..${s}kmdp-services${s}kmdp-language-service</directory>-->
-              <!--<followSymlinks>false</followSymlinks>-->
-            <!--</fileset>-->
+            <fileset>
+              <directory>..${s}kmdp-services${s}kmdp-language-service</directory>
+              <followSymlinks>false</followSymlinks>
+            </fileset>
             <!--<fileset>-->
               <!--<directory>..${s}kmdp-services${s}kmdp-knowledgebase-service</directory>-->
               <!--<followSymlinks>false</followSymlinks>-->
@@ -106,16 +107,16 @@
               <propertyFile>properties/asset.repository.properties</propertyFile>
             </configuration>
           </execution>
-          <!--<execution>-->
-            <!--<id>gen-lang</id>-->
-            <!--<goals>-->
-              <!--<goal>generate</goal>-->
-            <!--</goals>-->
-            <!--<phase>initialize</phase>-->
-            <!--<configuration>-->
-              <!--<propertyFile>${project.basedir}${s}properties${s}language.properties</propertyFile>-->
-            <!--</configuration>-->
-          <!--</execution>-->
+          <execution>
+            <id>gen-lang</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <phase>initialize</phase>
+            <configuration>
+              <propertyFile>properties/language.properties</propertyFile>
+            </configuration>
+          </execution>
           <!--<execution>-->
             <!--<id>gen-kb</id>-->
             <!--<goals>-->
@@ -139,6 +140,21 @@
           <!--</execution>-->
         </executions>
 
+      </plugin>
+
+      <!-- Disable the attach-sources plugin: it causes the archetype
+      plugin to be executed twice, leading to errors -->
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <phase/>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
