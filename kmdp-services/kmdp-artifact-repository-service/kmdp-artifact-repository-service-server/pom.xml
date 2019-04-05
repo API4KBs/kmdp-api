@@ -18,7 +18,7 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <springfox-version>2.7.0</springfox-version>
-    <model.package>edu.mayo.kmdp.common.model</model.package>
+    <model.package>org.omg.spec.api4kp._1_0.services.repository</model.package>
   </properties>
 
   <build>

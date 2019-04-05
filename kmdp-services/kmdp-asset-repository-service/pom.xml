@@ -23,7 +23,7 @@
   </modules>
 
   <properties>
-    <model.package>edu.mayo.kmdp.common.model</model.package>
+    <model.package>org.omg.spec.api4kp._1_0.services.repository</model.package>
   </properties>
 
   <build>
