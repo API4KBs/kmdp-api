@@ -1,8 +1,5 @@
 language: java
-cache:
-  directories:
-  - "$HOME/.m2"
-script: mvn clean install
+script: mvn install
 deploy:
   provider: script
   script: mvn deploy -s .travis.settings.xml
