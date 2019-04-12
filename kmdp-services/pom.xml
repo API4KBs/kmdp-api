@@ -66,6 +66,8 @@
                   </typeMapping>
                   <typeMapping>KnowledgeAsset=edu.mayo.kmdp.metadata.surrogate.KnowledgeAsset
                   </typeMapping>
+                  <typeMapping>ParsingLevel=edu.mayo.kmdp.terms.api4kp.parsinglevel._20190801.ParsingLevel
+                  </typeMapping>
 
                   <!-- Discovery Resources -->
                   <typeMapping>
