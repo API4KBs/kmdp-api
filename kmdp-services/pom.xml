@@ -93,6 +93,9 @@
                   <typeMapping>
                     Parameters=java.util.Properties
                   </typeMapping>
+                  <typeMapping>
+                    ParamDefinition=org.omg.spec.api4kp._1_0.services.ParameterDefinitions
+                  </typeMapping>
 
                 </typeMappings>
               </configuration>
