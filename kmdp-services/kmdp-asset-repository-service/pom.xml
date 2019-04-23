@@ -16,7 +16,6 @@
   <modules>
     <module>kmdp-asset-repository-service-model</module>
     <module>kmdp-asset-repository-service-client</module>
-    <module>kmdp-asset-repository-service-impl</module>
     <module>kmdp-asset-repository-service-server</module>
     <module>kmdp-asset-repository-service-base</module>
     <module>kmdp-asset-repository-service-api-client</module>
@@ -66,7 +65,9 @@
                 <generateApiTests>false</generateApiTests>
                 <generateModelTests>false</generateModelTests>
                 <modelPackage>${model.package}</modelPackage>
-                <configOptions></configOptions>
+                <configOptions>
+                  <dateLibrary>java8</dateLibrary>
+                </configOptions>
               </configuration>
             </execution>
           </executions>

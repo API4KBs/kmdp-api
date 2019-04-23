@@ -82,12 +82,6 @@
 
     <dependency>
       <groupId>edu.mayo.kmdp</groupId>
-      <artifactId>kmdp-language-service-impl</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>edu.mayo.kmdp</groupId>
       <artifactId>kmdp-language-service-server</artifactId>
       <version>${project.version}</version>
     </dependency>

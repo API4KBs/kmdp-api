@@ -10,7 +10,6 @@
         <version>1.0</version>
     </parent>
 
-    <groupId>edu.mayo.kmdp</groupId>
     <artifactId>kmdp-artifact-repository-service-api-client</artifactId>
     <version>1.0</version>
 
@@ -23,7 +22,6 @@
             <plugin>
                 <groupId>io.swagger</groupId>
                 <artifactId>swaggerhub-maven-plugin</artifactId>
-                <version>1.0.2</version>
             </plugin>
 
             <plugin>
@@ -97,7 +95,7 @@
         </dependency>
         <dependency>
             <groupId>edu.mayo.kmdp</groupId>
-            <artifactId>kmdp-artifact-repository-service-impl</artifactId>
+            <artifactId>kmdp-artifact-repository-service-server</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>

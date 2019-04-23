@@ -16,7 +16,6 @@
   <modules>
     <module>kmdp-language-service-model</module>
     <module>kmdp-language-service-client</module>
-    <module>kmdp-language-service-impl</module>
     <module>kmdp-language-service-server</module>
     <module>kmdp-language-service-base</module>
     <module>kmdp-language-service-api-client</module>
@@ -66,7 +65,9 @@
                 <generateApiTests>false</generateApiTests>
                 <generateModelTests>false</generateModelTests>
                 <modelPackage>${model.package}</modelPackage>
-                <configOptions></configOptions>
+                <configOptions>
+                  <dateLibrary>java8</dateLibrary>
+                </configOptions>
               </configuration>
             </execution>
           </executions>

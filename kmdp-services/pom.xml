@@ -45,62 +45,54 @@
           <groupId>io.swagger</groupId>
           <artifactId>swagger-codegen-maven-plugin</artifactId>
           <version>${swagger.codegen.version}</version>
-          <executions>
-            <execution>
-              <id>gen-code</id>
-              <goals>
-                <goal>generate</goal>
-              </goals>
-              <configuration>
-                <configOptions/>
-                <typeMappings>
+          <configuration>
+            <typeMappings>
 
-                  <!-- Reusable Datatypes -->
-                  <typeMapping>Pointer=org.omg.spec.api4kp._1_0.identifiers.Pointer</typeMapping>
+              <!-- Reusable Datatypes -->
+              <typeMapping>Pointer=org.omg.spec.api4kp._1_0.identifiers.Pointer</typeMapping>
 
-                  <!-- Operations Resources -->
-                  <typeMapping>KnowledgeCarrier=org.omg.spec.api4kp._1_0.services.KnowledgeCarrier
-                  </typeMapping>
-                  <typeMapping>
-                    SyntacticRepresentation=org.omg.spec.api4kp._1_0.services.SyntacticRepresentation
-                  </typeMapping>
-                  <typeMapping>KnowledgeAsset=edu.mayo.kmdp.metadata.surrogate.KnowledgeAsset
-                  </typeMapping>
-                  <typeMapping>ParsingLevel=edu.mayo.kmdp.terms.api4kp.parsinglevel._20190801.ParsingLevel
-                  </typeMapping>
+              <!-- Operations Resources -->
+              <typeMapping>KnowledgeCarrier=org.omg.spec.api4kp._1_0.services.KnowledgeCarrier
+              </typeMapping>
+              <typeMapping>
+                SyntacticRepresentation=org.omg.spec.api4kp._1_0.services.SyntacticRepresentation
+              </typeMapping>
+              <typeMapping>KnowledgeAsset=edu.mayo.kmdp.metadata.surrogate.KnowledgeAsset
+              </typeMapping>
+              <typeMapping>ParsingLevel=edu.mayo.kmdp.terms.api4kp.parsinglevel._20190801.ParsingLevel
+              </typeMapping>
 
-                  <!-- Discovery Resources -->
-                  <typeMapping>
-                    KnowledgeAssetCatalog=org.omg.spec.api4kp._1_0.services.repository.KnowledgeAssetCatalog
-                  </typeMapping>
-                  <typeMapping>
-                    KnowledgeArtifactRepository=org.omg.spec.api4kp._1_0.services.repository.KnowledgeArtifactRepository
-                  </typeMapping>
+              <!-- Discovery Resources -->
+              <typeMapping>
+                KnowledgeAssetCatalog=org.omg.spec.api4kp._1_0.services.repository.KnowledgeAssetCatalog
+              </typeMapping>
+              <typeMapping>
+                KnowledgeArtifactRepository=org.omg.spec.api4kp._1_0.services.repository.KnowledgeArtifactRepository
+              </typeMapping>
 
-                  <typeMapping>
-                    Transrepresentator=org.omg.spec.api4kp._1_0.services.language.Transrepresentator
-                  </typeMapping>
-                  <typeMapping>
-                    Transrepresentation=org.omg.spec.api4kp._1_0.services.language.Transrepresentation
-                  </typeMapping>
-                  <typeMapping>
-                    TransrepresentationMethod=org.omg.spec.api4kp._1_0.services.language.TransrepresentationMethod
-                  </typeMapping>
-                  <typeMapping>
-                    TransrepresentationOperator=org.omg.spec.api4kp._1_0.services.language.TransrepresentationOperator
-                  </typeMapping>
+              <typeMapping>
+                Transrepresentator=org.omg.spec.api4kp._1_0.services.language.Transrepresentator
+              </typeMapping>
+              <typeMapping>
+                Transrepresentation=org.omg.spec.api4kp._1_0.services.language.Transrepresentation
+              </typeMapping>
+              <typeMapping>
+                TransrepresentationMethod=org.omg.spec.api4kp._1_0.services.language.TransrepresentationMethod
+              </typeMapping>
+              <typeMapping>
+                TransrepresentationOperator=org.omg.spec.api4kp._1_0.services.language.TransrepresentationOperator
+              </typeMapping>
 
-                  <typeMapping>
-                    Parameters=java.util.Properties
-                  </typeMapping>
-                  <typeMapping>
-                    ParamDefinition=org.omg.spec.api4kp._1_0.services.ParameterDefinitions
-                  </typeMapping>
+              <typeMapping>
+                Parameters=java.util.Properties
+              </typeMapping>
+              <typeMapping>
+                ParamDefinition=org.omg.spec.api4kp._1_0.services.ParameterDefinitions
+              </typeMapping>
 
-                </typeMappings>
-              </configuration>
-            </execution>
-          </executions>
+            </typeMappings>
+          </configuration>
+
         </plugin>
       </plugins>
 
