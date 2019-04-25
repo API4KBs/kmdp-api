@@ -14,7 +14,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>kmdp-artifact-repository-service-model</module>
     <module>kmdp-artifact-repository-service-client</module>
     <module>kmdp-artifact-repository-service-server</module>
     <module>kmdp-artifact-repository-service-base</module>

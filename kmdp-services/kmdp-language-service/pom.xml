@@ -14,7 +14,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>kmdp-language-service-model</module>
     <module>kmdp-language-service-client</module>
     <module>kmdp-language-service-server</module>
     <module>kmdp-language-service-base</module>
