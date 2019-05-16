@@ -33,9 +33,8 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>kmdp-simple-generator</module>
     <module>kmdp-ws-utils</module>
-    <module>kmdp-services-builder-kit</module>
+    <module>kmdp-services-kit</module>
     <module>kmdp-services</module>
   </modules>
 

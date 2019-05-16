@@ -59,21 +59,9 @@
     </dependency>
 
     <dependency>
-      <groupId>org.javassist</groupId>
-      <artifactId>javassist</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>com.github.joschi.jackson</groupId>
-      <artifactId>jackson-datatype-threetenbp</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-autoconfigure</artifactId>
-      <version>1.5.9.RELEASE</version>
+      <version>${springframework.boot.version}</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>

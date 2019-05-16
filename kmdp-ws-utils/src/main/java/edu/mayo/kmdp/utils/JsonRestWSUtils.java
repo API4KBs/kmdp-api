@@ -20,28 +20,19 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.fasterxml.jackson.datatype.threetenbp.ThreeTenModule;
 import edu.mayo.kmdp.util.JSonUtil;
-import javassist.*;
+import java.lang.reflect.Type;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 import org.hl7.fhir.dstu3.model.Base;
-import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-import java.lang.reflect.Type;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 public class JsonRestWSUtils {
 
-  static {
-    ClassPool.getDefault().insertClassPath(new ClassClassPath(JsonRestWSUtils.class));
-  }
-
-  public static enum WithFHIR {
+  public enum WithFHIR {
     DSTU2, STU3, NONE;
   }
 
@@ -53,32 +44,16 @@ public class JsonRestWSUtils {
     return buildFHIRAdapter(fhir);
   }
 
-  public static <T> T configuredClient(Class<T> webClientClass) {
-    return configuredClient(webClientClass, WithFHIR.NONE);
-  }
-
-  public static <T> T configuredClient(Class<T> webClientClass, JsonRestWSUtils.WithFHIR fhir) {
-    return fhirEnabledClient(webClientClass, fhir).get();
-  }
-
-  public static RestTemplate restTemplate() {
-    return buildRestTemplate(WithFHIR.NONE);
-  }
-
-  public static RestTemplate restTemplate(WithFHIR fhir) {
-    return buildRestTemplate(fhir);
-  }
-
   protected static ObjectMapper getObjectMapper(WithFHIR fhir) {
     return configure(new ObjectMapper(), fhir);
   }
 
-  protected static ObjectMapper configure(ObjectMapper objectMapper, WithFHIR fhir) {
+  private static ObjectMapper configure(ObjectMapper objectMapper, WithFHIR fhir) {
     objectMapper = JSonUtil.configureMapper(objectMapper);
 
-    objectMapper.registerModule(new ThreeTenModule());
-
     try {
+      // The dependencies that provide the Jackson Modules are *provided* only as needed.
+      // The use of the reflective constructors avoids the need to have ALL of them at runtime.
       switch (fhir) {
         case DSTU2:
           objectMapper.registerModule(
@@ -100,7 +75,27 @@ public class JsonRestWSUtils {
     return objectMapper;
   }
 
-  private static RestTemplate configure(RestTemplate restTemplate, WithFHIR fhir) {
+  public static RestTemplate enableFHIR(RestTemplate restTemplate, WithFHIR fhir) {
+    return configure(
+        replaceConverters(
+            restTemplate,
+            buildFHIRAdapter(fhir)),
+        fhir);
+  }
+
+  public static RestTemplate replaceConverters(RestTemplate restTemplate,
+      MappingJackson2HttpMessageConverter replacementConverter) {
+    Set<AbstractJackson2HttpMessageConverter> defaultJacksonConverters =
+        restTemplate.getMessageConverters().stream()
+            .filter(AbstractJackson2HttpMessageConverter.class::isInstance)
+            .map(AbstractJackson2HttpMessageConverter.class::cast)
+            .collect(Collectors.toSet());
+    restTemplate.getMessageConverters().removeAll(defaultJacksonConverters);
+    restTemplate.getMessageConverters().add(replacementConverter);
+    return restTemplate;
+  }
+
+  public static RestTemplate configure(RestTemplate restTemplate, WithFHIR fhir) {
     MappingJackson2HttpMessageConverter messageConverter = restTemplate.getMessageConverters()
         .stream()
         .filter(MappingJackson2HttpMessageConverter.class::isInstance)
@@ -113,64 +108,7 @@ public class JsonRestWSUtils {
     return restTemplate;
   }
 
-  protected static RestTemplate buildRestTemplate(WithFHIR fhir) {
-    RestTemplate restTemplate = new RestTemplate();
-
-    Set<AbstractJackson2HttpMessageConverter> defaultJacksonConverters =
-        restTemplate.getMessageConverters().stream()
-            .filter(AbstractJackson2HttpMessageConverter.class::isInstance)
-            .map(AbstractJackson2HttpMessageConverter.class::cast)
-            .collect(Collectors.toSet());
-    restTemplate.getMessageConverters().removeAll(defaultJacksonConverters);
-    restTemplate.getMessageConverters().add(buildFHIRAdapter(fhir));
-
-    // This allows us to read the response more than once - Necessary for debugging.
-    restTemplate
-        .setRequestFactory(new BufferingClientHttpRequestFactory(restTemplate.getRequestFactory()));
-
-    return configure(restTemplate, fhir);
-  }
-
-
-  protected static <T> Optional<T> fhirEnabledClient(Class<T> apiClient,
-      JsonRestWSUtils.WithFHIR version) {
-    try {
-      if (version == JsonRestWSUtils.WithFHIR.NONE) {
-        return Optional.ofNullable(apiClient.newInstance());
-      }
-      String fhirProxy = apiClient.getName() + "_" + version.name();
-      Class<?> fhirProxyClass;
-
-      try {
-        fhirProxyClass = Class.forName(fhirProxy);
-      } catch (ClassNotFoundException cnfe) {
-        CtClass clientClass = ClassPool.getDefault().get(apiClient.getName());
-        CtClass fhirClient = ClassPool.getDefault()
-            .makeClass(apiClient.getName() + "_" + version.name(), clientClass);
-
-        String self = JsonRestWSUtils.class.getName();
-        String src =
-            "protected org.springframework.web.client.RestTemplate buildRestTemplate() { " +
-                "return " + self + ".restTemplate( " + self + ".WithFHIR." + version.name() + " ); "
-                +
-                "}";
-        CtMethod m = CtNewMethod.make(
-            src,
-            fhirClient);
-        fhirClient.addMethod(m);
-        fhirProxyClass = fhirClient.toClass();
-      }
-      return fhirProxyClass != null ? Optional.of((T) fhirProxyClass.newInstance())
-          : Optional.empty();
-
-    } catch (NotFoundException | CannotCompileException | IllegalAccessException | InstantiationException e) {
-      e.printStackTrace();
-    }
-    return Optional.empty();
-  }
-
-
-  private static MappingJackson2HttpMessageConverter buildFHIRAdapter(WithFHIR fhir) {
+  public static MappingJackson2HttpMessageConverter buildFHIRAdapter(WithFHIR fhir) {
     MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter() {
       @Override
       protected JavaType getJavaType(Type type, Class<?> contextClass) {
