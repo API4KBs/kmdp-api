@@ -8,11 +8,11 @@
   <parent>
     <artifactId>kmdp-asset-repository-service</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>1.0</version>
+    <version>1.0.1</version>
   </parent>
 
   <artifactId>kmdp-asset-repository-service-base</artifactId>
-  <version>1.0</version>
+  <version>1.0.1</version>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>

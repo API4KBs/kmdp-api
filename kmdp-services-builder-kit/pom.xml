@@ -24,11 +24,11 @@
   <parent>
     <artifactId>kmdp-services-sdk</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>1.0</version>
+    <version>1.0.1</version>
   </parent>
 
   <artifactId>kmdp-services-kit</artifactId>
-  <version>1.0</version>
+  <version>1.0.1</version>
 
   <packaging>pom</packaging>
 

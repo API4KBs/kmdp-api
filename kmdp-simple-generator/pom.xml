@@ -23,11 +23,11 @@
   <parent>
     <artifactId>kmdp-services-sdk</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>1.0</version>
+    <version>1.0.1</version>
   </parent>
 
   <artifactId>kmdp-simple-generator</artifactId>
-  <version>1.0</version>
+  <version>1.0.1</version>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>

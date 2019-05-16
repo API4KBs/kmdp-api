@@ -7,11 +7,11 @@
   <parent>
     <artifactId>kmdp-language-service</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>1.0</version>
+    <version>1.0.1</version>
   </parent>
 
   <artifactId>kmdp-language-service-server</artifactId>
-  <version>1.0</version>
+  <version>1.0.1</version>
 
   <properties>
     <java.version>1.8</java.version>
