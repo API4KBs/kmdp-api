@@ -7,11 +7,11 @@
     <parent>
         <artifactId>kmdp-artifact-repository-service</artifactId>
         <groupId>edu.mayo.kmdp</groupId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </parent>
 
     <artifactId>kmdp-artifact-repository-service-api-client</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -90,12 +90,12 @@
          <dependency>
             <groupId>edu.mayo.kmdp</groupId>
             <artifactId>kmdp-artifact-repository-service-server</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>edu.mayo.kmdp</groupId>
             <artifactId>kmdp-artifact-repository-service-client</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
         </dependency>
 
 
