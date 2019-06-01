@@ -15,49 +15,245 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 
--->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+--><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <artifactId>kmdp-bom</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>1.0.2</version>
+    <version>[2.0.0,2.0.1)</version>
   </parent>
 
-  <artifactId>kmdp-services-sdk</artifactId>
-  <version>1.0.2</version>
+  <artifactId>kmdp-api</artifactId>
+  <version>2.0.0</version>
 
   <packaging>pom</packaging>
 
+
+  <properties>
+    <s>${file.separator}</s>
+    <interact>false</interact>
+    <kmdp.archetype.version.resolved>${edu.mayo.kmdp:kmdp-api-facade-generator:jar.version}</kmdp.archetype.version.resolved>
+  </properties>
+
+  <dependencies>
+    <!-- set dependency so that it can be resolved by the dependencyversion plugin -->
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-openapi-spring-service-archetype</artifactId>
+      <version>${kmdp.archetype.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>io.reformanda.semper</groupId>
+        <artifactId>dependencyversion-maven-plugin</artifactId>
+        <inherited>false</inherited>
+        <executions>
+          <execution>
+            <id>set-ver</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>set-version</goal>
+            </goals>
+            <configuration>
+              <propertySets>
+                <propertySet>
+                  <includes>
+                    <include>edu.mayo.kmdp:kmdp-openapi-spring-service-archetype:jar</include>
+                    <include>edu.mayo.kmdp:kmdp-api-facade-generator:jar</include>
+                  </includes>
+                </propertySet>
+              </propertySets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+
+      <plugin>
+
+        <groupId>edu.mayo.kmdp</groupId>
+        <artifactId>configurable-archetype-plugin</artifactId>
+
+        <configuration>
+          <archetypeCatalog>local</archetypeCatalog>
+          <archetypeArtifactId>kmdp-openapi-spring-service-archetype</archetypeArtifactId>
+          <archetypeGroupId>edu.mayo.kmdp</archetypeGroupId>
+          <archetypeVersion>${edu.mayo.kmdp:kmdp-openapi-spring-service-archetype:jar.version}</archetypeVersion>
+          <interactiveMode>${interact}</interactiveMode>
+        </configuration>
+
+        <inherited>false</inherited>
+
+        <executions>
+          <execution>
+            <id>gen-repo</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <phase>initialize</phase>
+            <configuration>
+              <propertyFile>properties/artifact.repository.properties</propertyFile>
+            </configuration>
+          </execution>
+          <execution>
+            <id>gen-cat</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <phase>initialize</phase>
+            <configuration>
+              <propertyFile>properties/asset.repository.properties</propertyFile>
+            </configuration>
+          </execution>
+          <execution>
+            <id>gen-lang</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <phase>initialize</phase>
+            <configuration>
+              <propertyFile>properties/language.properties</propertyFile>
+            </configuration>
+          </execution>
+          <!--<execution>-->
+          <!--<id>gen-kb</id>-->
+          <!--<goals>-->
+          <!--<goal>generate</goal>-->
+          <!--</goals>-->
+          <!--<phase>initialize</phase>-->
+          <!--<configuration>-->
+          <!--<propertyFile>${project.basedir}${s}properties${s}knowledgebase.properties-->
+          <!--</propertyFile>-->
+          <!--</configuration>-->
+          <!--</execution>-->
+          <!--<execution>-->
+          <!--<id>gen-inf</id>-->
+          <!--<goals>-->
+          <!--<goal>generate</goal>-->
+          <!--</goals>-->
+          <!--<phase>initialize</phase>-->
+          <!--<configuration>-->
+          <!--<propertyFile>${project.basedir}${s}properties${s}inference.properties</propertyFile>-->
+          <!--</configuration>-->
+          <!--</execution>-->
+        </executions>
+
+      </plugin>
+
+      <!-- Disable the attach-sources plugin: it causes the archetype
+      plugin to be executed twice, leading to errors -->
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <phase/>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+
+    <pluginManagement>
+
+      <plugins>
+        <plugin>
+          <groupId>io.swagger</groupId>
+          <artifactId>swagger-codegen-maven-plugin</artifactId>
+          <version>${swagger.codegen.version}</version>
+          <configuration>
+            <typeMappings>
+
+              <!-- Reusable Datatypes -->
+              <typeMapping>Pointer=org.omg.spec.api4kp._1_0.identifiers.Pointer</typeMapping>
+
+              <!-- Operations Resources -->
+              <typeMapping>KnowledgeCarrier=org.omg.spec.api4kp._1_0.services.KnowledgeCarrier
+              </typeMapping>
+              <typeMapping>
+                SyntacticRepresentation=org.omg.spec.api4kp._1_0.services.SyntacticRepresentation
+              </typeMapping>
+              <typeMapping>KnowledgeAsset=edu.mayo.kmdp.metadata.surrogate.KnowledgeAsset
+              </typeMapping>
+              <typeMapping>ParsingLevel=edu.mayo.ontology.taxonomies.api4kp.parsinglevel._20190801.ParsingLevel
+              </typeMapping>
+
+              <!-- Discovery Resources -->
+              <typeMapping>
+                KnowledgeAssetCatalog=org.omg.spec.api4kp._1_0.services.repository.KnowledgeAssetCatalog
+              </typeMapping>
+              <typeMapping>
+                KnowledgeArtifactRepository=org.omg.spec.api4kp._1_0.services.repository.KnowledgeArtifactRepository
+              </typeMapping>
+
+              <typeMapping>
+                Transrepresentator=org.omg.spec.api4kp._1_0.services.language.Transrepresentator
+              </typeMapping>
+              <typeMapping>
+                Transrepresentation=org.omg.spec.api4kp._1_0.services.language.Transrepresentation
+              </typeMapping>
+              <typeMapping>
+                TransrepresentationMethod=org.omg.spec.api4kp._1_0.services.language.TransrepresentationMethod
+              </typeMapping>
+              <typeMapping>
+                TransrepresentationOperator=org.omg.spec.api4kp._1_0.services.language.TransrepresentationOperator
+              </typeMapping>
+
+              <typeMapping>
+                Parameters=java.util.Properties
+              </typeMapping>
+              <typeMapping>
+                ParamDefinition=org.omg.spec.api4kp._1_0.services.ParameterDefinitions
+              </typeMapping>
+
+            </typeMappings>
+          </configuration>
+
+        </plugin>
+      </plugins>
+
+    </pluginManagement>
+  </build>
+
+
+  <profiles>
+    <profile>
+      <id>public</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>bintray-api4kbs-API4KP-Mvn-Repo</id>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <name>bintray</name>
+          <url>https://dl.bintray.com/api4kbs/API4KP-Mvn-Repo</url>
+        </repository>
+      </repositories>
+
+      <distributionManagement>
+        <repository>
+          <id>bintray-api4kbs-API4KP-Mvn-Repo</id>
+          <name>api4kbs-API4KP-Mvn-Repo</name>
+          <url>https://api.bintray.com/maven/api4kbs/API4KP-Mvn-Repo/kmdp-api/;override=1;publish=1</url>
+        </repository>
+      </distributionManagement>
+    </profile>
+  </profiles>
+
+
   <modules>
-    <module>kmdp-ws-utils</module>
-    <module>kmdp-services-kit</module>
-    <module>kmdp-services</module>
+    <module>kmdp-artifact-repository-service</module>
+    <module>kmdp-asset-repository-service</module>
+    <module>kmdp-language-service</module>
   </modules>
-
-
-  <repositories>
-    <repository>
-      <id>bintray-api4kbs-API4KP-Mvn-Repo</id>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <name>bintray</name>
-      <url>https://dl.bintray.com/api4kbs/API4KP-Mvn-Repo</url>
-    </repository>
-  </repositories>
-
-
-  <distributionManagement>
-    <repository>
-      <id>bintray-api4kbs-API4KP-Mvn-Repo</id>
-      <name>api4kbs-API4KP-Mvn-Repo</name>
-      <url>https://api.bintray.com/maven/api4kbs/API4KP-Mvn-Repo/kmdp-api/;override=1;publish=1</url>
-    </repository>
-  </distributionManagement>
-
-
 </project>
