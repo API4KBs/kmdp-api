@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package edu.mayo.kmdp.language.server.configuration;
+package edu.mayo.kmdp.tranx.server.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,7 +43,7 @@ public class SwaggerDocumentationConfig {
   public Docket customImplementation() {
     return new Docket(DocumentationType.SWAGGER_2)
         .select()
-        .apis(RequestHandlerSelectors.basePackage("edu.mayo.kmdp.language"))
+        .apis(RequestHandlerSelectors.basePackage("edu.mayo.kmdp.tranx"))
         .build()
         //.directModelSubstitute(org.threeten.bp.LocalDate.class, java.sql.Date.class)
         //.directModelSubstitute(org.threeten.bp.OffsetDateTime.class, java.util.Date.class)

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package edu.mayo.kmdp.language.server.configuration;
+package edu.mayo.kmdp.tranx.server.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

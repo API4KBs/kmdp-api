@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package edu.mayo.kmdp.language.server;
+package edu.mayo.kmdp.tranx.server;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.ExitCodeGenerator;
@@ -26,7 +26,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan(basePackages = {"io.swagger", "edu.mayo.kmdp.language.server", "edu.mayo.kmdp.language.impl",
+@ComponentScan(basePackages = {"io.swagger", "edu.mayo.kmdp.tranx.server", "edu.mayo.kmdp.tranx.impl",
     "${scan.packages}"})
 public class Swagger2SpringBoot extends SpringBootServletInitializer implements CommandLineRunner {
 

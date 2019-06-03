@@ -7,21 +7,20 @@
     <version>2.0.0</version>
   </parent>
 
-  <artifactId>kmdp-language-service</artifactId>
+  <artifactId>kmdp-artifact-transrepresentation-service</artifactId>
   <groupId>edu.mayo.kmdp</groupId>
   <version>2.0.0</version>
 
   <packaging>pom</packaging>
 
   <modules>
-    <module>kmdp-language-service-client</module>
-    <module>kmdp-language-service-server</module>
-    <module>kmdp-language-service-base</module>
-    <module>kmdp-language-service-api-client</module>
+    <module>kmdp-artifact-transrepresentation-service-client</module>
+    <module>kmdp-artifact-transrepresentation-service-server</module>
+    <module>kmdp-artifact-transrepresentation-service-base</module>
   </modules>
 
   <properties>
-    <model.package>org.omg.spec.api4kp._1_0.services.language</model.package>
+    <model.package>org.omg.spec.api4kp._1_0.services.tranx</model.package>
   </properties>
 
   <build>
@@ -37,9 +36,9 @@
                 <goal>download</goal>
               </goals>
               <configuration>
-                <api>LanguageService</api>
+                <api>KnowledgeTransrepresentation</api>
                 <owner>mayo-clinic</owner>
-                <version>1.2.0</version>
+                <version>2.0.0</version>
                 <outputFile>${project.build.directory}/api.yaml</outputFile>
                 <token>${swaggerhub.api.key}</token>
                 <format>yaml</format>

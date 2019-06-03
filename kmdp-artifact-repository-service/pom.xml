@@ -17,7 +17,6 @@
     <module>kmdp-artifact-repository-service-client</module>
     <module>kmdp-artifact-repository-service-server</module>
     <module>kmdp-artifact-repository-service-base</module>
-    <module>kmdp-artifact-repository-service-api-client</module>
   </modules>
 
   <properties>
@@ -37,9 +36,9 @@
                 <goal>download</goal>
               </goals>
               <configuration>
-                <api>KnowledgeRepository</api>
+                <api>KnowledgeArtifactRepository</api>
                 <owner>mayo-clinic</owner>
-                <version>1.2</version>
+                <version>2.0.0</version>
                 <outputFile>${project.build.directory}/api.yaml</outputFile>
                 <token>${swaggerhub.api.key}</token>
                 <format>yaml</format>

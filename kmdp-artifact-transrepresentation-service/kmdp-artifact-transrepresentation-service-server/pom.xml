@@ -5,18 +5,18 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>kmdp-language-service</artifactId>
+    <artifactId>kmdp-artifact-transrepresentation-service</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
     <version>2.0.0</version>
   </parent>
 
-  <artifactId>kmdp-language-service-server</artifactId>
+  <artifactId>kmdp-artifact-transrepresentation-service-server</artifactId>
 
   <properties>
     <java.version>1.8</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <model.package>org.omg.spec.api4kp._1_0.services.language</model.package>
+    <model.package>org.omg.spec.api4kp._1_0.services.tranx</model.package>
   </properties>
 
   <build>
@@ -41,7 +41,7 @@
               <language>spring</language>
               <generateSupportingFiles>false</generateSupportingFiles>
               <generateModels>false</generateModels>
-              <apiPackage>edu.mayo.kmdp.language.server</apiPackage>
+              <apiPackage>edu.mayo.kmdp.tranx.server</apiPackage>
               <modelPackage>${model.package}</modelPackage>
               <addCompileSourceRoot>true</addCompileSourceRoot>
               <configOptions>

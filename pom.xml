@@ -77,7 +77,7 @@
       <plugin>
 
         <groupId>edu.mayo.kmdp</groupId>
-        <artifactId>configurable-archetype-plugin</artifactId>
+        <artifactId>kmdp-configurable-archetype-plugin</artifactId>
 
         <configuration>
           <archetypeCatalog>local</archetypeCatalog>
@@ -117,7 +117,7 @@
             </goals>
             <phase>initialize</phase>
             <configuration>
-              <propertyFile>properties/language.properties</propertyFile>
+              <propertyFile>properties/transrepresentation.properties</propertyFile>
             </configuration>
           </execution>
           <!--<execution>-->
@@ -194,16 +194,16 @@
               </typeMapping>
 
               <typeMapping>
-                Transrepresentator=org.omg.spec.api4kp._1_0.services.language.Transrepresentator
+                Transrepresentator=org.omg.spec.api4kp._1_0.services.tranx.Transrepresentator
               </typeMapping>
               <typeMapping>
-                Transrepresentation=org.omg.spec.api4kp._1_0.services.language.Transrepresentation
+                Transrepresentation=org.omg.spec.api4kp._1_0.services.tranx.Transrepresentation
               </typeMapping>
               <typeMapping>
-                TransrepresentationMethod=org.omg.spec.api4kp._1_0.services.language.TransrepresentationMethod
+                TransrepresentationMethod=org.omg.spec.api4kp._1_0.services.tranx.TransrepresentationMethod
               </typeMapping>
               <typeMapping>
-                TransrepresentationOperator=org.omg.spec.api4kp._1_0.services.language.TransrepresentationOperator
+                TransrepresentationOperator=org.omg.spec.api4kp._1_0.services.tranx.TransrepresentationOperator
               </typeMapping>
 
               <typeMapping>
@@ -254,6 +254,6 @@
   <modules>
     <module>kmdp-artifact-repository-service</module>
     <module>kmdp-asset-repository-service</module>
-    <module>kmdp-language-service</module>
+    <module>kmdp-artifact-transrepresentation-service</module>
   </modules>
 </project>
