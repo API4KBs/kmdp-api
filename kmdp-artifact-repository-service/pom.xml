@@ -4,12 +4,12 @@
   <parent>
     <artifactId>kmdp-api</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>2.0.0</version>
+    <version>2.0.2</version>
   </parent>
 
   <artifactId>kmdp-artifact-repository-service</artifactId>
   <groupId>edu.mayo.kmdp</groupId>
-  <version>2.0.0</version>
+  <version>2.0.2</version>
 
   <packaging>pom</packaging>
 
