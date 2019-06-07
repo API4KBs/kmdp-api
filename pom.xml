@@ -58,78 +58,6 @@
         </executions>
       </plugin>
 
-
-      <plugin>
-
-        <groupId>edu.mayo.kmdp</groupId>
-        <artifactId>kmdp-configurable-archetype-plugin</artifactId>
-
-        <configuration>
-          <archetypeCatalog>local</archetypeCatalog>
-          <archetypeArtifactId>kmdp-openapi-spring-service-archetype</archetypeArtifactId>
-          <archetypeGroupId>edu.mayo.kmdp</archetypeGroupId>
-          <archetypeVersion>${edu.mayo.kmdp:kmdp-openapi-spring-service-archetype:jar.version}</archetypeVersion>
-          <interactiveMode>${interact}</interactiveMode>
-        </configuration>
-
-        <inherited>false</inherited>
-
-        <executions>
-          <execution>
-            <id>gen-repo</id>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <phase>initialize</phase>
-            <configuration>
-              <propertyFile>properties/artifact.repository.properties</propertyFile>
-            </configuration>
-          </execution>
-          <execution>
-            <id>gen-cat</id>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <phase>initialize</phase>
-            <configuration>
-              <propertyFile>properties/asset.repository.properties</propertyFile>
-            </configuration>
-          </execution>
-          <execution>
-            <id>gen-lang</id>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <phase>initialize</phase>
-            <configuration>
-              <propertyFile>properties/transrepresentation.properties</propertyFile>
-            </configuration>
-          </execution>
-          <!--<execution>-->
-          <!--<id>gen-kb</id>-->
-          <!--<goals>-->
-          <!--<goal>generate</goal>-->
-          <!--</goals>-->
-          <!--<phase>initialize</phase>-->
-          <!--<configuration>-->
-          <!--<propertyFile>${project.basedir}${s}properties${s}knowledgebase.properties-->
-          <!--</propertyFile>-->
-          <!--</configuration>-->
-          <!--</execution>-->
-          <!--<execution>-->
-          <!--<id>gen-inf</id>-->
-          <!--<goals>-->
-          <!--<goal>generate</goal>-->
-          <!--</goals>-->
-          <!--<phase>initialize</phase>-->
-          <!--<configuration>-->
-          <!--<propertyFile>${project.basedir}${s}properties${s}inference.properties</propertyFile>-->
-          <!--</configuration>-->
-          <!--</execution>-->
-        </executions>
-
-      </plugin>
-
       <!-- Disable the attach-sources plugin: it causes the archetype
       plugin to be executed twice, leading to errors -->
       <plugin>
@@ -145,6 +73,7 @@
         </executions>
       </plugin>
     </plugins>
+
 
     <pluginManagement>
 
@@ -209,6 +138,102 @@
 
 
   <profiles>
+
+    <profile>
+      <id>refresh</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+
+          <plugin>
+
+            <groupId>edu.mayo.kmdp</groupId>
+            <artifactId>kmdp-configurable-archetype-plugin</artifactId>
+
+            <configuration>
+              <archetypeCatalog>local</archetypeCatalog>
+              <archetypeArtifactId>kmdp-openapi-spring-service-archetype</archetypeArtifactId>
+              <archetypeGroupId>edu.mayo.kmdp</archetypeGroupId>
+              <archetypeVersion>${edu.mayo.kmdp:kmdp-openapi-spring-service-archetype:jar.version}</archetypeVersion>
+              <interactiveMode>${interact}</interactiveMode>
+              <preserveRootPOM>true</preserveRootPOM>
+            </configuration>
+
+            <inherited>false</inherited>
+
+            <executions>
+              <execution>
+                <id>gen-repo</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <propertyFile>properties/artifact.repository.properties</propertyFile>
+                </configuration>
+              </execution>
+              <execution>
+                <id>gen-cat</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <propertyFile>properties/asset.repository.properties</propertyFile>
+                </configuration>
+              </execution>
+              <execution>
+                <id>gen-lang</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <propertyFile>properties/transrepresentation.properties</propertyFile>
+                </configuration>
+              </execution>
+              <!--<execution>-->
+              <!--<id>gen-kb</id>-->
+              <!--<goals>-->
+              <!--<goal>generate</goal>-->
+              <!--</goals>-->
+              <!--<phase>initialize</phase>-->
+              <!--<configuration>-->
+              <!--<propertyFile>${project.basedir}${s}properties${s}knowledgebase.properties-->
+              <!--</propertyFile>-->
+              <!--</configuration>-->
+              <!--</execution>-->
+              <!--<execution>-->
+              <!--<id>gen-inf</id>-->
+              <!--<goals>-->
+              <!--<goal>generate</goal>-->
+              <!--</goals>-->
+              <!--<phase>initialize</phase>-->
+              <!--<configuration>-->
+              <!--<propertyFile>${project.basedir}${s}properties${s}inference.properties</propertyFile>-->
+              <!--</configuration>-->
+              <!--</execution>-->
+            </executions>
+
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>normal</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>kmdp-artifact-repository-service</module>
+        <module>kmdp-asset-repository-service</module>
+        <module>kmdp-artifact-transrepresentation-service</module>
+      </modules>
+    </profile>
+
     <profile>
       <id>public</id>
       <activation>
@@ -235,10 +260,4 @@
     </profile>
   </profiles>
 
-
-  <modules>
-    <module>kmdp-artifact-repository-service</module>
-    <module>kmdp-asset-repository-service</module>
-    <module>kmdp-artifact-transrepresentation-service</module>
-  </modules>
 </project>
