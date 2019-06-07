@@ -18,7 +18,6 @@
     <s>${file.separator}</s>
     <interact>false</interact>
     <kmdp.archetype.version.resolved>${edu.mayo.kmdp:kmdp-api-facade-generator:jar.version}</kmdp.archetype.version.resolved>
-    <kmdp.impl.version.resolved>${edu.mayo.kmdp:kmdp-service-descr:jar.version}</kmdp.impl.version.resolved>
   </properties>
 
   <dependencies>
@@ -28,11 +27,6 @@
       <artifactId>kmdp-openapi-spring-service-archetype</artifactId>
       <version>${kmdp.archetype.version}</version>
       <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>edu.mayo.kmdp</groupId>
-      <artifactId>kmdp-service-descr</artifactId>
-      <version>${kmdp.impl.version}</version>
     </dependency>
   </dependencies>
 
@@ -56,7 +50,6 @@
                   <includes>
                     <include>edu.mayo.kmdp:kmdp-openapi-spring-service-archetype:jar</include>
                     <include>edu.mayo.kmdp:kmdp-api-facade-generator:jar</include>
-                    <include>edu.mayo.kmdp:kmdp-service-descr:jar</include>
                   </includes>
                 </propertySet>
               </propertySets>

@@ -7,7 +7,7 @@
   <parent>
     <artifactId>kmdp-artifact-transrepresentation-service</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>2.0.0</version>
+    <version>2.0.2</version>
   </parent>
 
   <artifactId>kmdp-artifact-transrepresentation-service-client</artifactId>
@@ -101,27 +101,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
-          <execution>
-            <id>include-xsds</id>
-            <phase>initialize</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>edu.mayo.kmdp</groupId>
-                  <artifactId>kmdp-service-descr</artifactId>
-                  <version>${kmdp.impl.version.resolved}</version>
-
-                  <type>jar</type>
-                  <overWrite>true</overWrite>
-                  <outputDirectory>${project.build.outputDirectory}</outputDirectory>
-                  <includes>**/*.xsd,**/*.xjb,**/*catalog*.xml</includes>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
           <execution>
             <id>unpack-mustache-custom-templates</id>
             <phase>initialize</phase>
