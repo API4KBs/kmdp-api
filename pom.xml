@@ -5,11 +5,11 @@
   <parent>
     <artifactId>kmdp-bom</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>2.5.0</version>
+    <version>(2.5.0,2.6.0)</version>
   </parent>
 
   <artifactId>kmdp-api</artifactId>
-  <version>2.5.0</version>
+  <version>2.5.1</version>
 
   <packaging>pom</packaging>
 
@@ -17,10 +17,10 @@
   <properties>
     <s>${file.separator}</s>
     <interact>false</interact>
-    <kmdp.archetype.version.resolved>${kmdp.archetype.version}</kmdp.archetype.version.resolved>
-<!--    <kmdp.archetype.version.resolved>${edu.mayo.kmdp:kmdp-api-facade-generator:jar.version}</kmdp.archetype.version.resolved>-->
-    <org.omg.spec.API4KP.version>${api4kp.version}</org.omg.spec.API4KP.version>
-<!--    <org.omg.spec.API4KP.version>${org.omg.spec:API4KP:jar.version}</org.omg.spec.API4KP.version>-->
+<!--    <kmdp.archetype.version.resolved>${kmdp.archetype.version}</kmdp.archetype.version.resolved>-->
+    <kmdp.archetype.version.resolved>${edu.mayo.kmdp:kmdp-api-facade-generator:jar.version}</kmdp.archetype.version.resolved>
+<!--    <org.omg.spec.API4KP.version>${api4kp.version}</org.omg.spec.API4KP.version>-->
+    <org.omg.spec.API4KP.version>${org.omg.spec:API4KP:jar.version}</org.omg.spec.API4KP.version>
   </properties>
 
   <dependencies>
