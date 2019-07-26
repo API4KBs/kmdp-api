@@ -6,3 +6,5 @@ target/
 kmdp-artifact-repository-service
 kmdp-artifact-transrepresentation-service
 kmdp-asset-repository-service
+
+**/*.xml.versionsBackup
