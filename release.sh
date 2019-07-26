@@ -63,8 +63,7 @@ git rebase "rel_$1"
 # Revert all necesssary version changes/fixtures
 mvn versions:set -DnewVersion=$2
 ## cannot set parent version to a range with maven 3.3.9 / maven versions 2.7
-## mvn versions:update-parent -DparentVersion="($2,)"
-sed -i -r "/<parent>/,/<\/parent>/ s|<version>([0-9]+\.[0-9]+\.[0-9]+)</version>|<version>($1,$2]</version> |" pom.xml
+sed -i -r "/<parent>/,/<\/parent>/ s|<version>([0-9]+\.[0-9]+\.[0-9]+)</version>|<version>[$1,$2]</version> |" pom.xml
 ## cannot set properties to a variable literal using maven versions
 sed -i -r "s|<kmdp.archetype.version.resolved>(.*)</kmdp.archetype.version.resolved>|<kmdp.archetype.version.resolved>\$\{edu.mayo.kmdp:kmdp-api-facade-generator:jar.version\}</kmdp.archetype.version.resolved> |" pom.xml
 sed -i -r "s|<org.omg.spec.API4KP.version>(.*)</org.omg.spec.API4KP.version>|<org.omg.spec.API4KP.version>\$\{org.omg.spec:API4KP:jar.version\}</org.omg.spec.API4KP.version> |" pom.xml

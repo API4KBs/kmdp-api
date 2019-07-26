@@ -5,7 +5,7 @@
   <parent>
     <artifactId>kmdp-bom</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>(3.0.0,3.0.1]</version>  
+    <version>[3.0.0,3.0.1]</version>
   </parent>
 
   <artifactId>kmdp-api</artifactId>
