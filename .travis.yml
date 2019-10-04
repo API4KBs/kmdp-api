@@ -8,10 +8,17 @@ stages:
 install: true
 script:
   - 'mvn package -P public,refresh -q'
+  - 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=API4KBs_kmdp-api -Ppublic,normal -q'
 deploy:
   provider: script
-  script: mvn clean deploy -DskipTests -Ppublic,normal -s .travis.settings.xml
+  script: mvn clean deploy -DskipTests -Ppublic,normal -s .travis.settings.xml -q
   skip_cleanup: true
+
+addons:
+  sonarcloud:
+    organization: "api4kbs"
+    token:
+      secure: "G7d5DqaSVD2cSH/miVPgl0OnDm4V3t4TCTloi9mniniPCg6dfZVvgteGiDFFxr4L9lghQAAeeZrB2FwVcgy2AMK40WmfC9fQzJU7ue1Cbk2UaMKc84dmhsGY5o6Qdr2WkFMzxOiQ6BjxAUXa4OwZsaz2r7QBHd6gh790+Y6l+zdtM5IucdlvhopOcPDNc9a0yqzz9AhsZaar/BMHUyZ2HMWwoMG7tDx2oss/lzPmLxtjHDwrSggFUMmGFwXhGFjiUV/iGhC0Lr+fxfrIGBNMGKAAcf9MuB37neHZv2f8sXp87mEVP22YnbP+A5ahB0Eko5uqzxeTcAy2r1Bcplx2WCkjJa2bsIV0LYD2rAYKf2lsgCto6in9v4FdYTm34b+XprZAsVKHsQsUEoPYym5JWAmF9lW4VwsuoaUJcYvGeT/+RQ1B3XzUyydwNWarpPzHVqgl7PWIZm9c4nrSOlN0McvxVjmyfM4fS5bsz3j6U06yyz7h94d7HAvgC7xhhJTJRc2CgL2zkVBx3Z9fHOIKO7hafK9+4jfoABev2OCiv5Kw8nlydgO1cdDBcPURJ+Qcxxb/wissKI9srbQIjJaRl8Xrn6kZAr7KWfULz4zpkOeuZKgZa6padnkGPo98cYStkmfKjpr3VfXr589R43jZ6ruAirT5nLY39H/8V8EkvVk="
 
 env:
   global:
