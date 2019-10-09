@@ -10,9 +10,15 @@ script:
   - 'mvn package -P public,refresh -q'
   - 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=API4KBs_kmdp-api -Ppublic,normal -q'
 deploy:
-  provider: script
-  script: mvn clean deploy -DskipTests -Ppublic,normal -s .travis.settings.xml -q
-  skip_cleanup: true
+  - provider: script
+    script: mvn clean deploy -DskipTests -Ppublic,normal -s .travis.settings.xml -q
+    skip_cleanup: true
+    on:
+      branch: master
+  - provider: script
+    script: mvn clean deploy -DskipTests -Ppublic,normal -s .travis.settings.xml -q
+    on:
+      branch: develop
 
 addons:
   sonarcloud:
