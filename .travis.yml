@@ -17,6 +17,7 @@ deploy:
       branch: master
   - provider: script
     script: mvn clean deploy -DskipTests -Ppublic,normal -s .travis.settings.xml -q
+    skip_cleanup: true
     on:
       branch: develop
 
