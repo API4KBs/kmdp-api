@@ -6,5 +6,7 @@ target/
 kmdp-artifact-repository-service
 kmdp-artifact-transrepresentation-service
 kmdp-asset-repository-service
+kmdp-inference-service
+kmdp-knowledgebase-service
 
 **/*.xml.versionsBackup
