@@ -5,11 +5,11 @@
   <parent>
     <artifactId>kmdp-bom</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>[5.0.4,5.0.5]</version>    
+    <version>5.1.0</version>     
   </parent>
 
   <artifactId>kmdp-api</artifactId>
-  <version>5.0.5</version>
+  <version>5.1.0</version>
 
   <packaging>pom</packaging>
 
@@ -18,9 +18,9 @@
     <s>${file.separator}</s>
     <interact>false</interact>
 <!--    <kmdp.archetype.version.resolved>${edu.mayo.kmdp:kmdp-api-facade-generator:jar.version}</kmdp.archetype.version.resolved>   -->
-    <kmdp.archetype.version.resolved>${edu.mayo.kmdp:kmdp-api-facade-generator:jar.version}</kmdp.archetype.version.resolved>   
+    <kmdp.archetype.version.resolved>5.1.0</kmdp.archetype.version.resolved>   
 <!--    <org.omg.spec.API4KP.version>${org.omg.spec:API4KP:jar.version}</org.omg.spec.API4KP.version>   -->
-    <org.omg.spec.API4KP.version>${org.omg.spec:API4KP:jar.version}</org.omg.spec.API4KP.version>   
+    <org.omg.spec.API4KP.version>5.1.0</org.omg.spec.API4KP.version>   
   </properties>
 
   <dependencies>
@@ -159,7 +159,7 @@
               <archetypeCatalog>local</archetypeCatalog>
               <archetypeArtifactId>kmdp-openapi-spring-service-archetype</archetypeArtifactId>
               <archetypeGroupId>edu.mayo.kmdp</archetypeGroupId>
-              <archetypeVersion>${edu.mayo.kmdp:kmdp-openapi-spring-service-archetype:jar.version}</archetypeVersion>      
+              <archetypeVersion>${kmdp.archetype.version}</archetypeVersion>       
               <interactiveMode>${interact}</interactiveMode>
               <preserveRootPOM>true</preserveRootPOM>
             </configuration>
