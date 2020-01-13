@@ -153,6 +153,10 @@
                 Dataset=org.omg.spec.api4kp._1_0.datatypes.Dataset
               </typeMapping>
 
+              <typeMapping>
+                ConceptIdentifier=org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier
+              </typeMapping>
+
             </typeMappings>
           </configuration>
 
@@ -240,6 +244,16 @@
                   <propertyFile>${project.basedir}${s}properties${s}inference.properties</propertyFile>
                 </configuration>
               </execution>
+              <execution>
+                <id>gen-terms</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <propertyFile>${project.basedir}${s}properties${s}terminology.properties</propertyFile>
+                </configuration>
+              </execution>
             </executions>
 
           </plugin>
@@ -258,6 +272,7 @@
         <module>kmdp-artifact-transrepresentation-service</module>
         <module>kmdp-inference-service</module>
         <module>kmdp-knowledgebase-service</module>
+        <module>kmdp-terminology-service</module>
       </modules>
     </profile>
 

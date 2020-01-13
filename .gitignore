@@ -8,5 +8,6 @@ kmdp-artifact-transrepresentation-service
 kmdp-asset-repository-service
 kmdp-inference-service
 kmdp-knowledgebase-service
+kmdp-terminology-service
 
 **/*.xml.versionsBackup
