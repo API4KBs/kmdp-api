@@ -89,17 +89,26 @@
             <typeMappings>
 
               <!-- Reusable Datatypes -->
-              <typeMapping>Pointer=org.omg.spec.api4kp._1_0.identifiers.Pointer</typeMapping>
+              <typeMapping>
+                Pointer=org.omg.spec.api4kp._1_0.identifiers.Pointer
+              </typeMapping>
 
               <!-- Operations Resources -->
-              <typeMapping>KnowledgeCarrier=org.omg.spec.api4kp._1_0.services.KnowledgeCarrier
+              <typeMapping>
+                KnowledgeCarrier=org.omg.spec.api4kp._1_0.services.KnowledgeCarrier
               </typeMapping>
+              <typeMapping>
+                KnowledgeBase=org.omg.spec.api4kp._1_0.services.KnowledgeBase
+              </typeMapping>
+
               <typeMapping>
                 SyntacticRepresentation=org.omg.spec.api4kp._1_0.services.SyntacticRepresentation
               </typeMapping>
-              <typeMapping>KnowledgeAsset=edu.mayo.kmdp.metadata.surrogate.KnowledgeAsset
+              <typeMapping>
+                KnowledgeAsset=edu.mayo.kmdp.metadata.surrogate.KnowledgeAsset
               </typeMapping>
-              <typeMapping>ParsingLevel=edu.mayo.ontology.taxonomies.api4kp.parsinglevel.ParsingLevel
+              <typeMapping>
+                ParsingLevel=edu.mayo.ontology.taxonomies.api4kp.parsinglevel.ParsingLevel
               </typeMapping>
 
               <!-- Discovery Resources -->
@@ -128,6 +137,24 @@
               </typeMapping>
               <typeMapping>
                 ParamDefinition=org.omg.spec.api4kp._1_0.services.ParameterDefinitions
+              </typeMapping>
+
+              <typeMapping>
+                Bindings=org.omg.spec.api4kp._1_0.datatypes.Bindings
+              </typeMapping>
+
+              <typeMapping>
+                Deliberation=org.omg.spec.api4kp._1_0.services.Deliberation
+              </typeMapping>
+              <typeMapping>
+                DataConceptDefinition=org.omg.spec.api4kp._1_0.services.inference.DataConceptDefinition
+              </typeMapping>
+              <typeMapping>
+                Dataset=org.omg.spec.api4kp._1_0.datatypes.Dataset
+              </typeMapping>
+
+              <typeMapping>
+                ConceptIdentifier=org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier
               </typeMapping>
 
             </typeMappings>
@@ -197,27 +224,36 @@
                   <propertyFile>properties/transrepresentation.properties</propertyFile>
                 </configuration>
               </execution>
-              <!--<execution>-->
-              <!--<id>gen-kb</id>-->
-              <!--<goals>-->
-              <!--<goal>generate</goal>-->
-              <!--</goals>-->
-              <!--<phase>initialize</phase>-->
-              <!--<configuration>-->
-              <!--<propertyFile>${project.basedir}${s}properties${s}knowledgebase.properties-->
-              <!--</propertyFile>-->
-              <!--</configuration>-->
-              <!--</execution>-->
-              <!--<execution>-->
-              <!--<id>gen-inf</id>-->
-              <!--<goals>-->
-              <!--<goal>generate</goal>-->
-              <!--</goals>-->
-              <!--<phase>initialize</phase>-->
-              <!--<configuration>-->
-              <!--<propertyFile>${project.basedir}${s}properties${s}inference.properties</propertyFile>-->
-              <!--</configuration>-->
-              <!--</execution>-->
+              <execution>
+                <id>gen-kb</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <propertyFile>properties/knowledgebase.properties</propertyFile>
+                </configuration>
+              </execution>
+              <execution>
+                <id>gen-inf</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <propertyFile>${project.basedir}${s}properties${s}inference.properties</propertyFile>
+                </configuration>
+              </execution>
+              <execution>
+                <id>gen-terms</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <propertyFile>${project.basedir}${s}properties${s}terminology.properties</propertyFile>
+                </configuration>
+              </execution>
             </executions>
 
           </plugin>
@@ -234,6 +270,9 @@
         <module>kmdp-artifact-repository-service</module>
         <module>kmdp-asset-repository-service</module>
         <module>kmdp-artifact-transrepresentation-service</module>
+        <module>kmdp-inference-service</module>
+        <module>kmdp-knowledgebase-service</module>
+        <module>kmdp-terminology-service</module>
       </modules>
     </profile>
 
