@@ -77,12 +77,14 @@ steps:
 
 # STEP 4 Download secure settings file
 - task: DownloadSecureFile@1
+  displayName: 'Download Secure Settings for Develop'
   name: settingsxml
   inputs:
     secureFile: settings-dev.xml
 
 # STEP 5 Write settings file to server
 - task: PowerShell@2
+  displayName: 'Write Settings File to .m2'
   inputs:
     targetType: 'inline'
     script: |
@@ -91,10 +93,19 @@ steps:
 
 #STEP 6 Authenticate to KMD
 - task: MavenAuthenticate@0
+  displayName: 'Authenticate Maven Settings File'
   inputs:
     artifactsFeeds: 'KMD'
 
-# STEP 7 Deploy Maven to AzDo KMD Artifacts
+# STEP 7: API project clean package using refresh
+- task: PowerShell@2
+  displayName: 'Maven Clean Package -Prefresh'
+  inputs:
+    targetType: 'inline'
+    script: |
+        mvn clean package -Prefresh
+
+# STEP 8 Deploy Maven to AzDo KMD Artifacts
 - task: Maven@3
   displayName: 'Maven Deploy to KMD Artifacts'
   inputs:
