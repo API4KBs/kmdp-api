@@ -5,11 +5,11 @@
   <parent>
     <artifactId>kmdp-bom</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>6.1.0-SNAPSHOT</version>
+    <version>7.0.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>kmdp-api</artifactId>
-  <version>6.1.0-SNAPSHOT</version>
+  <version>7.0.0-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
@@ -126,6 +126,10 @@
               </typeMapping>
 
             </typeMappings>
+
+            <additionalProperties>
+              <additionalProperty>hideGenerationTimestamp=true</additionalProperty>
+            </additionalProperties>
           </configuration>
 
         </plugin>
