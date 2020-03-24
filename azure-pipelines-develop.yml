@@ -91,6 +91,14 @@ steps:
   inputs:
     artifactsFeeds: 'KMD'
 
+# Maven Run refresh profile
+- task: PowerShell@2
+  displayName: 'Maven Clean Package -Prefresh'
+  inputs:
+    targetType: 'inline'
+    script: |
+        mvn clean package -Prefresh --no-transfer-progress 
+
 # Maven Deploy to AzDo KMD Artifacts
 - task: Maven@3
   displayName: 'Maven Deploy to KMD Artifacts'
@@ -100,8 +108,8 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
-    options: '-DaltDeploymentRepository=KMD::default::https://pkgs.dev.azure.com/mclm/_packaging/KMD/maven/v1'
-
+    options: '-DaltDeploymentRepository=KMD::default::https://pkgs.dev.azure.com/mclm/_packaging/KMD/maven/v1' --no-transfer-progress 
+ 
 # ------------------ END PIPELINE  ------------------
 - script: |
     echo Ending Develop Branch Pipeline!
