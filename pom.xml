@@ -54,6 +54,9 @@
               <typeMapping>
                 Pointer=org.omg.spec.api4kp._1_0.identifiers.Pointer
               </typeMapping>
+              <typeMapping>
+                Pointer2=org.omg.spec.api4kp._1_0.id.Pointer
+              </typeMapping>
 
               <!-- Operations Resources -->
               <typeMapping>
