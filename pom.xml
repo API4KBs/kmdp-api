@@ -73,6 +73,9 @@
                 KnowledgeAsset=edu.mayo.kmdp.metadata.surrogate.KnowledgeAsset
               </typeMapping>
               <typeMapping>
+                KnowledgeAsset2=edu.mayo.kmdp.metadata.v2.surrogate.KnowledgeAsset
+              </typeMapping>
+              <typeMapping>
                 ParsingLevel=edu.mayo.ontology.taxonomies.api4kp.parsinglevel.ParsingLevel
               </typeMapping>
 
