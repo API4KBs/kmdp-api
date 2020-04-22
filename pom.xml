@@ -122,7 +122,7 @@
               </typeMapping>
 
               <typeMapping>
-                ConceptIdentifier=org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier
+                ConceptDescriptor=edu.mayo.kmdp.terms.impl.model.ConceptDescriptor
               </typeMapping>
 
             </typeMappings>
