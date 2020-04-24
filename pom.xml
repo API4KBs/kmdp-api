@@ -91,6 +91,15 @@
                 Transrepresentator=org.omg.spec.api4kp._1_0.services.tranx.Transrepresentator
               </typeMapping>
               <typeMapping>
+                Detector=org.omg.spec.api4kp._1_0.services.tranx.Detector
+              </typeMapping>
+              <typeMapping>
+                Validator=org.omg.spec.api4kp._1_0.services.tranx.Validator
+              </typeMapping>
+              <typeMapping>
+                Deserializer=org.omg.spec.api4kp._1_0.services.tranx.Deserializer
+              </typeMapping>
+              <typeMapping>
                 Transrepresentation=org.omg.spec.api4kp._1_0.services.tranx.Transrepresentation
               </typeMapping>
               <typeMapping>
@@ -98,6 +107,15 @@
               </typeMapping>
               <typeMapping>
                 TransrepresentationOperator=org.omg.spec.api4kp._1_0.services.tranx.TransrepresentationOperator
+              </typeMapping>
+              <typeMapping>
+                DetectionOperator=org.omg.spec.api4kp._1_0.services.tranx.DetectionOperator
+              </typeMapping>
+              <typeMapping>
+                ValidationOperator=org.omg.spec.api4kp._1_0.services.tranx.ValidationOperator
+              </typeMapping>
+              <typeMapping>
+                DeserializationOperator=org.omg.spec.api4kp._1_0.services.tranx.DeserializationOperator
               </typeMapping>
 
               <typeMapping>
