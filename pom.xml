@@ -52,31 +52,31 @@
 
               <!-- Reusable Datatypes -->
               <typeMapping>
-                Pointer=org.omg.spec.api4kp._1_0.identifiers.Pointer
+                Pointer=org.omg.spec.api4kp._20200801.id.Pointer
               </typeMapping>
               <typeMapping>
-                Pointer2=org.omg.spec.api4kp._1_0.id.Pointer
+                Pointer2=org.omg.spec.api4kp._20200801.id.Pointer
               </typeMapping>
 
               <!-- Operations Resources -->
               <typeMapping>
-                KnowledgeCarrier=org.omg.spec.api4kp._1_0.services.KnowledgeCarrier
+                KnowledgeCarrier=org.omg.spec.api4kp._20200801.services.KnowledgeCarrier
               </typeMapping>
 			        <typeMapping>
-                CompositeKnowledgeCarrier=org.omg.spec.api4kp._1_0.services.CompositeKnowledgeCarrier
+                CompositeKnowledgeCarrier=org.omg.spec.api4kp._20200801.services.CompositeKnowledgeCarrier
               </typeMapping>
               <typeMapping>
-                KnowledgeBase=org.omg.spec.api4kp._1_0.services.KnowledgeBase
+                KnowledgeBase=org.omg.spec.api4kp._20200801.services.KnowledgeBase
               </typeMapping>
 
               <typeMapping>
-                SyntacticRepresentation=org.omg.spec.api4kp._1_0.services.SyntacticRepresentation
+                SyntacticRepresentation=org.omg.spec.api4kp._20200801.services.SyntacticRepresentation
               </typeMapping>
               <typeMapping>
-                KnowledgeAsset=edu.mayo.kmdp.metadata.surrogate.KnowledgeAsset
+                KnowledgeAsset=org.omg.spec.api4kp._20200801.surrogate.KnowledgeAsset
               </typeMapping>
               <typeMapping>
-                KnowledgeAsset2=edu.mayo.kmdp.metadata.v2.surrogate.KnowledgeAsset
+                KnowledgeAsset2=org.omg.spec.api4kp._20200801.surrogate.KnowledgeAsset
               </typeMapping>
               <typeMapping>
                 ParsingLevel=edu.mayo.ontology.taxonomies.api4kp.parsinglevel.ParsingLevel
@@ -84,62 +84,62 @@
 
               <!-- Discovery Resources -->
               <typeMapping>
-                KnowledgeAssetCatalog=org.omg.spec.api4kp._1_0.services.repository.KnowledgeAssetCatalog
+                KnowledgeAssetCatalog=org.omg.spec.api4kp._20200801.services.repository.KnowledgeAssetCatalog
               </typeMapping>
               <typeMapping>
-                KnowledgeArtifactRepository=org.omg.spec.api4kp._1_0.services.repository.KnowledgeArtifactRepository
+                KnowledgeArtifactRepository=org.omg.spec.api4kp._20200801.services.repository.KnowledgeArtifactRepository
               </typeMapping>
 
               <typeMapping>
-                Transrepresentator=org.omg.spec.api4kp._1_0.services.tranx.Transrepresentator
+                Transrepresentator=org.omg.spec.api4kp._20200801.services.transrepresentation.Transrepresentator
               </typeMapping>
               <typeMapping>
-                Detector=org.omg.spec.api4kp._1_0.services.tranx.Detector
+                Detector=org.omg.spec.api4kp._20200801.services.transrepresentation.Detector
               </typeMapping>
               <typeMapping>
-                Validator=org.omg.spec.api4kp._1_0.services.tranx.Validator
+                Validator=org.omg.spec.api4kp._20200801.services.transrepresentation.Validator
               </typeMapping>
               <typeMapping>
-                Deserializer=org.omg.spec.api4kp._1_0.services.tranx.Deserializer
+                Deserializer=org.omg.spec.api4kp._20200801.services.transrepresentation.Deserializer
               </typeMapping>
               <typeMapping>
-                Transrepresentation=org.omg.spec.api4kp._1_0.services.tranx.Transrepresentation
+                Transrepresentation=org.omg.spec.api4kp._20200801.services.transrepresentation.Transrepresentation
               </typeMapping>
               <typeMapping>
-                TransrepresentationMethod=org.omg.spec.api4kp._1_0.services.tranx.TransrepresentationMethod
+                TransrepresentationMethod=org.omg.spec.api4kp._20200801.services.transrepresentation.TransrepresentationMethod
               </typeMapping>
               <typeMapping>
-                TransrepresentationOperator=org.omg.spec.api4kp._1_0.services.tranx.TransrepresentationOperator
+                TransrepresentationOperator=org.omg.spec.api4kp._20200801.services.transrepresentation.TransrepresentationOperator
               </typeMapping>
               <typeMapping>
-                DetectionOperator=org.omg.spec.api4kp._1_0.services.tranx.DetectionOperator
+                DetectionOperator=org.omg.spec.api4kp._20200801.services.transrepresentation.DetectionOperator
               </typeMapping>
               <typeMapping>
-                ValidationOperator=org.omg.spec.api4kp._1_0.services.tranx.ValidationOperator
+                ValidationOperator=org.omg.spec.api4kp._20200801.services.transrepresentation.ValidationOperator
               </typeMapping>
               <typeMapping>
-                DeserializationOperator=org.omg.spec.api4kp._1_0.services.tranx.DeserializationOperator
+                DeserializationOperator=org.omg.spec.api4kp._20200801.services.transrepresentation.DeserializationOperator
               </typeMapping>
 
               <typeMapping>
                 Parameters=java.util.Properties
               </typeMapping>
               <typeMapping>
-                ParamDefinition=org.omg.spec.api4kp._1_0.services.ParameterDefinitions
+                ParamDefinition=org.omg.spec.api4kp._20200801.services.ParameterDefinitions
               </typeMapping>
 
               <typeMapping>
-                Bindings=org.omg.spec.api4kp._1_0.datatypes.Bindings
+                Bindings=org.omg.spec.api4kp._20200801.datatypes.Bindings
               </typeMapping>
 
               <typeMapping>
-                Deliberation=org.omg.spec.api4kp._1_0.services.Deliberation
+                Deliberation=org.omg.spec.api4kp._20200801.services.Deliberation
               </typeMapping>
               <typeMapping>
-                DataConceptDefinition=org.omg.spec.api4kp._1_0.services.inference.DataConceptDefinition
+                DataConceptDefinition=org.omg.spec.api4kp._20200801.services.inference.DataConceptDefinition
               </typeMapping>
               <typeMapping>
-                Dataset=org.omg.spec.api4kp._1_0.datatypes.Dataset
+                Dataset=org.omg.spec.api4kp._20200801.datatypes.Dataset
               </typeMapping>
 
               <typeMapping>
