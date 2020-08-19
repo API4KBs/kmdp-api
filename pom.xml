@@ -79,7 +79,7 @@
                 KnowledgeAsset2=org.omg.spec.api4kp._20200801.surrogate.KnowledgeAsset
               </typeMapping>
               <typeMapping>
-                ParsingLevel=org.omg.spec.api4kp.taxonomy.parsinglevel.ParsingLevel
+                ParsingLevel=org.omg.spec.api4kp._20200801.taxonomy.parsinglevel.ParsingLevel
               </typeMapping>
 
               <!-- Discovery Resources -->
