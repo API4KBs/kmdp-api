@@ -54,9 +54,6 @@
               <typeMapping>
                 Pointer=org.omg.spec.api4kp._20200801.id.Pointer
               </typeMapping>
-              <typeMapping>
-                Pointer2=org.omg.spec.api4kp._20200801.id.Pointer
-              </typeMapping>
 
               <!-- Operations Resources -->
               <typeMapping>
@@ -75,10 +72,7 @@
               <typeMapping>
                 KnowledgeAsset=org.omg.spec.api4kp._20200801.surrogate.KnowledgeAsset
               </typeMapping>
-              <typeMapping>
-                KnowledgeAsset2=org.omg.spec.api4kp._20200801.surrogate.KnowledgeAsset
-              </typeMapping>
-              <typeMapping>
+               <typeMapping>
                 ParsingLevel=org.omg.spec.api4kp._20200801.taxonomy.parsinglevel.ParsingLevel
               </typeMapping>
 
