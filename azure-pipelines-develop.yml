@@ -89,17 +89,6 @@ steps:
   inputs:
     artifactsFeeds: 'KMD'
 
-# Sets JDK 11 for Pipeline
-# Runs Maven Goal: validate
-- task: Maven@3
-  displayName: 'Sets Pipeline to JDK 11'
-  inputs:
-    mavenPomFile: 'pom.xml'
-    goals: 'validate'
-    options: '-ntp'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-
 # Sets ALM/SLM Versioning Policy 
 # Sets Version Tranformation: none
 - task: AlmVersioning@4
@@ -125,14 +114,16 @@ steps:
     ArtifactName: deploy
   condition: succeededOrFailed()
 
-# Runs Maven Goal: package
-# Maven Profile: refresh 
-- task: PowerShell@2
+# Sets JDK 11 for Pipeline
+# Runs Maven Goal: validate
+- task: Maven@3
   displayName: 'Maven Package Prefresh to Generate Sub Projects'
   inputs:
-    targetType: 'inline'
-    script: |
-      mvn clean package -Prefresh -ntp
+    mavenPomFile: 'pom.xml'
+    goals: 'clean package'
+    options: '-Prefresh -ntp'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
 
 # Runs Maven Goal: deploy 
 # Deploys to Azure DevOps Artifacts
