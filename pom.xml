@@ -263,41 +263,6 @@
       </modules>
     </profile>
 
-    <profile>
-      <id>public</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <repositories>
-        <repository>
-          <id>bintray-api4kbs-API4KP-Mvn-Repo</id>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-          <name>bintray</name>
-          <url>https://dl.bintray.com/api4kbs/API4KP-Mvn-Repo</url>
-        </repository>
-      </repositories>
-
-      <pluginRepositories>
-        <pluginRepository>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-          <id>bintray-api4kbs-API4KP-Mvn-Repo</id>
-          <name>bintray-plugins</name>
-          <url>https://dl.bintray.com/api4kbs/API4KP-Mvn-Repo</url>
-        </pluginRepository>
-      </pluginRepositories>
-
-      <distributionManagement>
-        <repository>
-          <id>bintray-api4kbs-API4KP-Mvn-Repo</id>
-          <name>api4kbs-API4KP-Mvn-Repo</name>
-          <url>https://api.bintray.com/maven/api4kbs/API4KP-Mvn-Repo/kmdp-api/;override=1;publish=1</url>
-        </repository>
-      </distributionManagement>
-    </profile>
   </profiles>
   
 </project>
