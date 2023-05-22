@@ -5,11 +5,11 @@
   <parent>
     <artifactId>kmdp-bom</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>11.2.12-SNAPSHOT</version>
+    <version>12.0.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>kmdp-api</artifactId>
-  <version>11.2.12-SNAPSHOT</version>
+  <version>12.0.0-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
@@ -44,9 +44,8 @@
 
       <plugins>
         <plugin>
-          <groupId>io.swagger</groupId>
+          <groupId>io.swagger.codegen.v3</groupId>
           <artifactId>swagger-codegen-maven-plugin</artifactId>
-          <version>${swagger.codegen.version}</version>
           <configuration>
             <typeMappings>
 
@@ -139,11 +138,29 @@
               <typeMapping>
                 ConceptDescriptor=org.omg.spec.api4kp._20200801.terms.model.ConceptDescriptor
               </typeMapping>
+              <typeMapping>
+                UUID=java.util.UUID
+              </typeMapping>
 
             </typeMappings>
 
+            <!-- body needs importMapping -->
+            <importMappings>
+              <importMapping>
+                KnowledgeCarrier=org.omg.spec.api4kp._20200801.services.KnowledgeCarrier
+              </importMapping>
+              <importMapping>
+                KnowledgeAsset=org.omg.spec.api4kp._20200801.surrogate.KnowledgeAsset
+              </importMapping>
+              <importMapping>
+                Bindings=org.omg.spec.api4kp._20200801.datatypes.Bindings
+              </importMapping>
+            </importMappings>
+
             <additionalProperties>
               <additionalProperty>hideGenerationTimestamp=true</additionalProperty>
+              <additionalProperty>ignoreImportMappings=false</additionalProperty>
+              <additionalProperty>stringEnums=true</additionalProperty>
             </additionalProperties>
           </configuration>
 
@@ -254,11 +271,11 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <modules>
+        <module>kmdp-artifact-transrepresentation-service</module>
         <module>kmdp-artifact-repository-service</module>
         <module>kmdp-asset-repository-service</module>
-        <module>kmdp-artifact-transrepresentation-service</module>
-        <module>kmdp-inference-service</module>
         <module>kmdp-knowledgebase-service</module>
+        <module>kmdp-inference-service</module>
         <module>kmdp-terminology-service</module>
       </modules>
     </profile>
