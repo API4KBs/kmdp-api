@@ -13,6 +13,7 @@
 
   <packaging>pom</packaging>
 
+  <name>KMDP :: API :: Java/Spring API Implementation</name>
 
   <properties>
     <s>${file.separator}</s>
@@ -156,11 +157,13 @@
                 Bindings=org.omg.spec.api4kp._20200801.datatypes.Bindings
               </importMapping>
             </importMappings>
+            <configOptions>
+              <useBeanValidation>false</useBeanValidation>
+            </configOptions>
 
             <additionalProperties>
               <additionalProperty>hideGenerationTimestamp=true</additionalProperty>
               <additionalProperty>ignoreImportMappings=false</additionalProperty>
-              <additionalProperty>stringEnums=true</additionalProperty>
             </additionalProperties>
           </configuration>
 
@@ -258,6 +261,16 @@
                   <propertyFile>${project.basedir}${s}properties${s}terminology.properties</propertyFile>
                 </configuration>
               </execution>
+              <execution>
+                <id>gen-gl</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <propertyFile>${project.basedir}${s}properties${s}glossary.library.properties</propertyFile>
+                </configuration>
+              </execution>
             </executions>
 
           </plugin>
@@ -276,6 +289,7 @@
         <module>kmdp-knowledgebase-service</module>
         <module>kmdp-inference-service</module>
         <module>kmdp-terminology-service</module>
+        <module>kmdp-glossary-library-service</module>
         <module>kmdp-asset-repository-service</module>
       </modules>
     </profile>

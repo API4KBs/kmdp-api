@@ -9,5 +9,6 @@ kmdp-asset-repository-service
 kmdp-inference-service
 kmdp-knowledgebase-service
 kmdp-terminology-service
+kmdp-glossary-library-service
 
 **/*.xml.versionsBackup
