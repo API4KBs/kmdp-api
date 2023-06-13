@@ -294,6 +294,74 @@
       </modules>
     </profile>
 
+
+    <!-- Use the following profiles to build individual api -->
+    <!-- as long as the 'normal' profile is disabled -->
+    <!-- e.g. mvn clean install -P !normal,artf-only -->
+    <profile>
+      <id>artf-only</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>kmdp-artifact-repository-service</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>lang-only</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>kmdp-artifact-transrepresentation-service</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>kbc-only</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>kmdp-knowledgebase-service</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>infer-only</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>kmdp-inference-service</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>gl-only</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>kmdp-terminology-service</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>gl-only</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>kmdp-glossary-library-service</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>kars-only</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>kmdp-asset-repository-service</module>
+      </modules>
+    </profile>
+
   </profiles>
   
 </project>
