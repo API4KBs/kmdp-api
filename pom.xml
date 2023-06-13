@@ -335,7 +335,7 @@
       </modules>
     </profile>
     <profile>
-      <id>gl-only</id>
+      <id>terms-only</id>
       <activation>
         <activeByDefault>false</activeByDefault>
       </activation>
