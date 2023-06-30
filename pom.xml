@@ -20,6 +20,52 @@
     <interact>false</interact>
   </properties>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.github.davidmoten</groupId>
+      <artifactId>openapi-to-plantuml</artifactId>
+      <version>0.1.21</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.sourceforge.plantuml</groupId>
+      <artifactId>plantuml-mit</artifactId>
+      <version>1.2023.9</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.omg.spec</groupId>
+      <artifactId>api4kp</artifactId>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-svg-dom</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-swing</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-codec</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-transcoder</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-test-utils</artifactId>
+    </dependency>
+  </dependencies>
+
 
   <build>
     <plugins>
@@ -271,6 +317,16 @@
                   <propertyFile>${project.basedir}${s}properties${s}glossary.library.properties</propertyFile>
                 </configuration>
               </execution>
+              <execution>
+                <id>gen-wemi</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <propertyFile>${project.basedir}${s}properties${s}wemi.properties</propertyFile>
+                </configuration>
+              </execution>
             </executions>
 
           </plugin>
@@ -289,6 +345,7 @@
         <module>kmdp-knowledgebase-service</module>
         <module>kmdp-inference-service</module>
         <module>kmdp-terminology-service</module>
+        <module>kmdp-wemi-service</module>
         <module>kmdp-glossary-library-service</module>
         <module>kmdp-asset-repository-service</module>
       </modules>
@@ -341,6 +398,15 @@
       </activation>
       <modules>
         <module>kmdp-terminology-service</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>wemi-only</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>kmdp-wemi-service</module>
       </modules>
     </profile>
     <profile>

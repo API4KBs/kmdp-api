@@ -10,5 +10,7 @@ kmdp-inference-service
 kmdp-knowledgebase-service
 kmdp-terminology-service
 kmdp-glossary-library-service
+kmdp-wemi-service
 
 **/*.xml.versionsBackup
+*.png
